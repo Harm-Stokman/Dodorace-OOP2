@@ -125,7 +125,7 @@ public class MyDodo extends Dodo
 
     public boolean canLayEgg( ){
        if( onEgg() ){
-            
+            return false;
         }else{
             return true;
         }
