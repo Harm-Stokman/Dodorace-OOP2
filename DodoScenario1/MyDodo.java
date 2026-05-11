@@ -136,4 +136,19 @@ public class MyDodo extends Dodo
         turnRight();
         turnRight();
     }
+    
+    public void climbOverFence() {
+            if (fenceAhead()) {
+            turnLeft();
+            move();
+            turnRight();
+            move();
+            move();
+            turnRight();
+            move();
+            turnLeft();
+       } else {
+           System.out.println("No fence to climb!");
+       }
+    }
 }
