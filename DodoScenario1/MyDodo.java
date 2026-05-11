@@ -89,7 +89,8 @@ public class MyDodo extends Dodo
         int nrStepsTaken = 0;               // set counter to 0
         while ( nrStepsTaken < distance ) { // check if more steps must be taken  
             move();                         // take a step
-            nrStepsTaken++;                 // increment the counter
+            nrStepsTaken++; 
+            System.out.println("Moved," + nrStepsTaken); // increment the counter
         }
     }
 
