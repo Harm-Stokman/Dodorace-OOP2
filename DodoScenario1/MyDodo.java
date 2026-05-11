@@ -151,4 +151,10 @@ public class MyDodo extends Dodo
            System.out.println("No fence to climb!");
        }
     }
+    
+    public boolean grainAhead() {
+        if () {
+            
+        }
+    }
 }

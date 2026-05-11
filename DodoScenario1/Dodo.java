@@ -54,7 +54,7 @@ public abstract class Dodo extends Actor
     public boolean nestAhead() {
         return getActorAhead( Nest.class ) != null;
     }
-
+    
     public boolean onEgg() {
         return getActor( Egg.class ) != null;
     }
