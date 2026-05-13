@@ -132,11 +132,24 @@ public class MyDodo extends Dodo
         }
     }  
     
+    
+    /**
+     * Dodo turns 180 degrees, facing the opposite direction.
+     */
     public void turn180() {
         turnRight();
         turnRight();
     }
-    
+
+    /**
+     * Initial situation: Dodo is facing a fence on his right side.
+     * Final situation: Dodo is on the other side of the fence, with the fence to his back.
+     
+     * Dodo first rotates, facing upward, then taking a step forward, and then 
+     * rotates normally. Then taking 2 steps,then rotating downwards and take 
+     * 1 step more.finally, the dodo rotates once more to have the same rotation
+     * as the initial situation.
+     */
     public void climbOverFence() {
             if (fenceAhead()) {
             turnLeft();
@@ -165,5 +178,9 @@ public class MyDodo extends Dodo
             turn180();
             return false;
         }
+    }
+    
+    public void goToEgg() {
+        
     }
 }
