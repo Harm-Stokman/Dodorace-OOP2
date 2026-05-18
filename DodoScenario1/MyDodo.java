@@ -102,7 +102,6 @@ public class MyDodo extends Dodo
      * 
      * <p> Initial: Dodo is on West side of world facing East.
      * <p> Final:   Dodo is on East side of world facing East.
-     *              Coordinates of each cell printed in the console.
      */
 
     public void walkToWorldEdge( ){
@@ -189,5 +188,10 @@ public class MyDodo extends Dodo
         while (!onEgg()) {
             move();
         }
+    }
+    
+    public void goBackToStartOfRowAndFaceBack() {
+        walkToWorldEdge();
+        turn180();
     }
 }
