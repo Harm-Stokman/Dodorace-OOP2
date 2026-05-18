@@ -180,7 +180,15 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Initial situation: egg lies ... cells ahead of the dodo. The cells 
+     * between are empty.
+     * 
+     * Final situation: Dodo is standing still on top of the egg.
+     */
     public void goToEgg() {
-        
+        while (!onEgg()) {
+            move();
+        }
     }
 }

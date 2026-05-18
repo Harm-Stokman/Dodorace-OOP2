@@ -13,6 +13,7 @@ comment12.params=
 comment12.target=boolean\ grainAhead()
 comment13.params=
 comment13.target=void\ goToEgg()
+comment13.text=\r\n\ Initial\ situation\:\ egg\ lies\ ...\ cells\ ahead\ of\ the\ dodo.\ The\ cells\ \r\n\ between\ are\ empty.\r\n\ \r\n\ Final\ situation\:\ Dodo\ is\ standing\ still\ on\ top\ of\ the\ egg.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=
