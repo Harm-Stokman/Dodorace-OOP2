@@ -241,5 +241,9 @@ public class MyDodo extends Dodo
             }
         }
     }
+    
+    public void walkAroundFencedArea() {
+        
+    }
     }
 
