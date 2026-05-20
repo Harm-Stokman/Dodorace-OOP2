@@ -163,17 +163,20 @@ public class MyDodo extends Dodo
        }
     }
     
+    
+    public void stepOneCellBackwards() {
+        turn180();
+        move();
+        turn180();
+    }
+    
     public boolean grainAhead() {
         move();
         if (onGrain()) {
-            turn180();
-            move();
-            turn180();
+           stepOneCellBackwards();
             return true;
         } else {
-            turn180();
-            move();
-            turn180();
+            stepOneCellBackwards(); 
             return false;
         }
     }
