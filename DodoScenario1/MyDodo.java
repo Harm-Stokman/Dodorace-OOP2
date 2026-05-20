@@ -206,6 +206,12 @@ public class MyDodo extends Dodo
             } else {
                 move();
             }
+            
+            if (onNest()) {
+                if (!onEgg()) {
+                    layEgg();
+                }
+            }
         }
     }
     
