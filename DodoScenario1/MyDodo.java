@@ -224,5 +224,16 @@ public class MyDodo extends Dodo
                 super.getY());
             }
     }
+    
+    public void walkToWorldEdgeWhileCheckingNests() {
+        while (!borderAhead()) {
+            move();
+            if (onNest()) {
+                if (!onEgg()) {
+                    layEgg();
+                }
+            }
+        }
+    }
     }
 
