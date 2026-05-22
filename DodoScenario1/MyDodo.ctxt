@@ -32,6 +32,7 @@ comment18.target=void\ walkToWorldEdgeWhileCheckingNests()
 comment18.text=\r\n\ The\ dodo\ will\ walk\ to\ the\ world\ border\ while\ checking\ empty\ nests\ on\r\n\ his\ path.\ if\ there\ is\ an\ empty\ nest,\ the\ dodo\ will\ lay\ an\ egg.\r\n
 comment19.params=
 comment19.target=void\ walkAroundFencedArea()
+comment19.text=\r\n\ Dodo\ checks\ if\ there\ is\ a\ path\ under\ him.\ If\ not,\ it\ will\ turn\ back\ and\r\n\ forward.\ if\ so,\ it\ will\ go\ along\ the\ fence\ and\ keeps\ checking\ \r\n\ directions\ to\ go\ to.\ the\ dodo\ will\ stop\ walking\ around\ the\ fence\ until\r\n\ the\ egg\ is\ reached.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment3.params=

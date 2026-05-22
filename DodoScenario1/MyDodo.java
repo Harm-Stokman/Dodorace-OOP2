@@ -267,16 +267,20 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Dodo checks if there is a path under him. If not, it will turn back and
+     * forward. if so, it will go along the fence and keeps checking 
+     * directions to go to. the dodo will stop walking around the fence until
+     * the egg is reached.
+     */
     public void walkAroundFencedArea() {
         while (!onEgg()) {
+            move();
             turnRight();
-            if (fenceAhead()) {
-                turnLeft();
-                move();
-            } else {
-                move();
+            while (fenceAhead()) {
+                turnLeft(); 
             }
         }
     }
-    }
+}
 
