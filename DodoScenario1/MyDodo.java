@@ -268,7 +268,15 @@ public class MyDodo extends Dodo
     }
     
     public void walkAroundFencedArea() {
-        
+        while (!onEgg()) {
+            turnRight();
+            if (fenceAhead()) {
+                turnLeft();
+                move();
+            } else {
+                move();
+            }
+        }
     }
     }
 
