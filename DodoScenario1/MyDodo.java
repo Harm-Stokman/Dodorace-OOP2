@@ -163,13 +163,20 @@ public class MyDodo extends Dodo
        }
     }
     
-    
+    /**
+     * Dodo turns around 180 degrees, then moving one step. After that the 
+     * dodo turns again, to the original direction.
+     */
     public void stepOneCellBackwards() {
         turn180();
         move();
         turn180();
     }
     
+    /**
+     * dodo moves forward, checking if there is grain on his position, then 
+     * then takes a step back, returning a value that is true / false
+     */
     public boolean grainAhead() {
         move();
         if (onGrain()) {
@@ -193,12 +200,22 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Dodo walks to the world border, then turn to face his original position
+     */
     public void goBackToStartOfRowAndFaceBack() {
         walkToWorldEdge();
         turn180();
     }
     
-    
+    /**
+     * Dodo walks to the world border while also checking if there are fences
+     * ahead. If there is a fence ahead, the dodo will climb over the fence 
+     * and continue his path to the world border. 
+     * 
+     * The dodo will also check if there are empty nests. if so, it will lay
+     * an egg
+     */
     public void walkToWorldEdgeClimbingOverFences() {
         while (!borderAhead()) {
             if (fenceAhead()) {
@@ -215,6 +232,10 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * if the dodo picks up a grain, the coordinates of the grain will be
+     * printed in the console.
+     */
     public void pickUpGrainsAndPrintCoordinates() {
         while (!borderAhead()) {
             if (onGrain()) {
@@ -231,6 +252,10 @@ public class MyDodo extends Dodo
             }
     }
     
+    /**
+     * The dodo will walk to the world border while checking empty nests on
+     * his path. if there is an empty nest, the dodo will lay an egg.
+     */
     public void walkToWorldEdgeWhileCheckingNests() {
         while (!borderAhead()) {
             move();
