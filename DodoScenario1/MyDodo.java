@@ -1,4 +1,4 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+    import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
  *
@@ -298,6 +298,29 @@ public class MyDodo extends Dodo
                 } 
             }
             
+        }
+    }
+    
+    public void walkToNestInMaze() {
+        while (!onNest()) {
+            if (!fenceAhead()) {
+                move();
+            } else {
+                turnRight();
+                if (fenceAhead()) {
+                    turn180();
+                }
+            } 
+        }
+    }
+    
+    
+    public void walkToNestInMazeHard() {
+        while (!onNest()) {
+            turnRight();
+            if (!fenceAhead()) {
+                move();
+            } 
         }
     }
     
