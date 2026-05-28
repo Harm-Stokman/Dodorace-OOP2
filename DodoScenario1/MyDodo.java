@@ -282,5 +282,24 @@ public class MyDodo extends Dodo
             }
         }
     }
-}
 
+    
+    /**
+     * 
+     */
+    public void eggTrailToNest() {
+        while (!onNest()) {
+            if (eggAhead() || nestAhead()) {
+                move();
+            } else {
+                turnRight();
+                if (!eggAhead()) {
+                    turn180();
+                } 
+            }
+            
+        }
+    }
+    
+    
+}
