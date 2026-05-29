@@ -346,8 +346,15 @@ public class MyDodo extends Dodo
         return getX() == x && getY() == y;
     }
     
+    public boolean validCoordinates(int x, int y) {
+        int height = getWorld().getHeight();
+        int width = getWorld().getWidth();
+        return x >= 0 && x <= width && y >= 0 && y <= height;
+    }
+    
     public void goToLocation(int coordX, int coordY) {
-        while (!locationReached(coordX, coordY)) {
+        if (validCoordinates(coordX, coordY)) {
+            while (!locationReached(coordX, coordY)) {
         if (getX() < coordX) {
             faceDirection(1);
             move();
@@ -361,6 +368,9 @@ public class MyDodo extends Dodo
             faceDirection(0);
             move();
         }
+        }
+        } else {
+             showError("Invalid coordinates");
         }
     }
 }
