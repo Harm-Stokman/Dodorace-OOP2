@@ -326,5 +326,19 @@ public class MyDodo extends Dodo
         }
     }
     
-    
+    public void changeEggValue() {
+        BlueEgg blueEgg = new BlueEgg();
+        GoldenEgg goldenEgg = new GoldenEgg();
+        
+        System.out.println(blueEgg.getValue());
+        System.out.println(goldenEgg.getValue());
+        
+        int temporaryValue = blueEgg.getValue();
+        
+        blueEgg.setValue(goldenEgg.getValue());
+        goldenEgg.setValue(temporaryValue);
+        
+        System.out.println(blueEgg.getValue());
+        System.out.println(goldenEgg.getValue());
+    }
 }

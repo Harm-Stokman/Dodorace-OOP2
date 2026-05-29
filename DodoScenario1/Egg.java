@@ -27,5 +27,5 @@ public abstract class Egg extends Actor
         if ( Mauritius.checkCellContent ( this, x, y, Egg.class, Fence.class ) ){
             super.setLocation( x, y );
         }
-    }
+    }    
 }
