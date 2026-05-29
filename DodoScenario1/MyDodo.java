@@ -341,4 +341,26 @@ public class MyDodo extends Dodo
         System.out.println(blueEgg.getValue());
         System.out.println(goldenEgg.getValue());
     }
+    
+    public boolean locationReached(int x, int y) {
+        return getX() == x && getY() == y;
+    }
+    
+    public void goToLocation(int coordX, int coordY) {
+        while (!locationReached(coordX, coordY)) {
+        if (getX() < coordX) {
+            faceDirection(1);
+            move();
+        } else if (getX() > coordX) {
+            faceDirection(3);
+            move();
+        } else if (getY() < coordY) {
+            faceDirection(2);
+            move();
+        } else if (getY() > coordY) {
+            faceDirection(0);
+            move();
+        }
+        }
+    }
 }
