@@ -285,7 +285,9 @@ public class MyDodo extends Dodo
 
     
     /**
-     * 
+     * Dodo keeps looking if an egg is in front of her, and turns to the right 
+     * when there is no egg in front of her. search stops after standing on
+     * her nest
      */
     public void eggTrailToNest() {
         while (!onNest()) {
@@ -301,6 +303,10 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * dodo keeps checking if she can go right. doing this, she follows the 
+     * right side until she reaches her nest.
+     */
     public void walkToNestInMaze() {
         while (!onNest()) {
             turnRight();
@@ -316,6 +322,11 @@ public class MyDodo extends Dodo
         showCompliment("Well done!");
     }
     
+    
+    /**
+     * dodo faces direction depending on the input. can be north, east, south,
+     * west.
+     */
     public void faceDirection(int direction) {
         if (direction >= 0 && direction <= 3) {
             while (getDirection() != direction) {
@@ -326,6 +337,11 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * The value of temporaryValue is set to the value of BlueEgg.
+     * The value of blueEgg is set to the value of GoldenEgg.
+     * The value of goldenEgg is set to the value of temporaryValue
+     */
     public void changeEggValue() {
         BlueEgg blueEgg = new BlueEgg();
         GoldenEgg goldenEgg = new GoldenEgg();
@@ -342,16 +358,26 @@ public class MyDodo extends Dodo
         System.out.println(goldenEgg.getValue());
     }
     
+    
+    /**
+     * this will let the dodo know when to stop.
+     */
     public boolean locationReached(int x, int y) {
         return getX() == x && getY() == y;
     }
     
+    /**
+     * checks if the submitted coordinates are valid and not out of bounds.
+     */
     public boolean validCoordinates(int x, int y) {
         int height = getWorld().getHeight();
         int width = getWorld().getWidth();
         return x >= 0 && x <= width && y >= 0 && y <= height;
     }
     
+    /**
+     * the dodo will travel to a location based on submitted coordinates.
+     */
     public void goToLocation(int coordX, int coordY) {
         if (validCoordinates(coordX, coordY)) {
             while (!locationReached(coordX, coordY)) {
@@ -372,5 +398,23 @@ public class MyDodo extends Dodo
         } else {
              showError("Invalid coordinates");
         }
+    }
+    
+    /**
+     * The dodo walks forward until she reaches the edge while counting eggs 
+     * on the same row and walks back to her starting position when finished.
+     */
+    public int countEggsInRow() {
+        int eggAmount = 0;
+        while (!borderAhead()) {
+            if (onEgg())  {
+            eggAmount++;
+            }
+            move();
+        }
+        turn180();
+        goBackToStartOfRowAndFaceBack();
+        showCompliment("You counted " + eggAmount + " " + "eggs.");
+        return eggAmount;
     }
 }
