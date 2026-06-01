@@ -417,4 +417,21 @@ public class MyDodo extends Dodo
         showCompliment("You counted " + eggAmount + " " + "eggs.");
         return eggAmount;
     }
+    
+    public void layTrailOfEggs(int n) {
+        if (n <= getWorld().getWidth()) {
+            for (int index = 0; index < n; index++) {
+            if (!onEgg()) {
+            layEgg();
+            }
+            move();
+            if (borderAhead()) {
+                index = n;
+            }
+        }
+        layEgg();
+        } else {
+            showError("Invalid number.");
+        }
+    }
 }
