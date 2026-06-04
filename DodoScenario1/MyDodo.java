@@ -393,7 +393,8 @@ public class MyDodo extends Dodo
         } else if (getY() > coordY) {
             faceDirection(0);
             move();
-        }
+        } 
+        faceDirection(1);
         }
         } else {
              showError("Invalid coordinates");
@@ -406,15 +407,19 @@ public class MyDodo extends Dodo
      */
     public int countEggsInRow() {
         int eggAmount = 0;
+         if (onEgg())  {
+            eggAmount++; 
+            System.out.println("egg found");
+            }
         while (!borderAhead()) {
             if (onEgg())  {
-            eggAmount++;
+            eggAmount++; 
+            System.out.println("egg found");
             }
             move();
         }
         turn180();
-        goBackToStartOfRowAndFaceBack();
-        showCompliment("You counted " + eggAmount + " " + "eggs.");
+        goBackToStartOfRowAndFaceBack();    
         return eggAmount;
     }
     
@@ -433,5 +438,20 @@ public class MyDodo extends Dodo
         } else {
             showError("Invalid number.");
         }
+    }
+    
+    public void countEggsInWorld() {
+        int eggCount = 0;
+        for (int index = 0; index < getWorld().getHeight(); index++) {
+            eggCount = eggCount + countEggsInRow();
+            turnRight();
+            if (!borderAhead()) {
+            move();
+            turnLeft();
+            }
+        }
+        goToLocation(0, 0);
+        faceDirection(1);
+        showCompliment("You collected " + eggCount + " " + "eggs.");
     }
 }
