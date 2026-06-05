@@ -513,4 +513,18 @@ public class MyDodo extends Dodo
         }
         goToLocation(startCoordsX, startCoordsY);
     }
+    
+    public void createPyramidWithEggs() {
+        int startCoordsX = getX();
+        int startCoordsY = getY();
+        int height = getWorld().getHeight();
+        int row = 0;
+        while (row < height && startCoordsX - row >= 0) {
+            goToLocation(startCoordsX - row, startCoordsY + row );
+            faceDirection(1);
+            layTrailOfEggs(2 * row + 1);
+            row++;
+        }
+        goToLocation(startCoordsX, startCoordsY);
+    }
 }
