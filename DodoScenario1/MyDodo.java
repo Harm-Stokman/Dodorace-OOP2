@@ -454,4 +454,27 @@ public class MyDodo extends Dodo
         faceDirection(1);
         showCompliment("You collected " + eggCount + " " + "eggs.");
     }
+    
+    public void findRowWithMostEggs() {
+        int highestRowCoords = 0;
+        int highestEggAmount = 0;
+        
+        for (int index = 0; index < getWorld().getHeight(); index++) {
+            int rowSearch = countEggsInRow();
+            if (rowSearch >  highestEggAmount) {
+                highestEggAmount = rowSearch;
+                highestRowCoords = getY();
+            } 
+            turnRight();
+            if (!borderAhead()) {
+            move();
+            turnLeft();
+            }
+        }
+        
+        goToLocation(0, 0);
+        faceDirection(1);
+        showCompliment("Row with the most eggs is: " + highestRowCoords
+        + "\n" + "With " + highestEggAmount + " eggs.");
+    }
 }
