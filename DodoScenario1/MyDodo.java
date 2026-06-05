@@ -429,12 +429,17 @@ public class MyDodo extends Dodo
             if (!onEgg()) {
             layEgg();
             }
-            move();
             if (borderAhead()) {
+                if (!onEgg()) {
+                    layEgg();
+                }
                 index = n;
             }
+            if (canMove()) {
+                move();
+            }
         }
-        layEgg();
+        
         } else {
             showError("Invalid number.");
         }
@@ -476,5 +481,19 @@ public class MyDodo extends Dodo
         faceDirection(1);
         showCompliment("Row with the most eggs is: " + highestRowCoords
         + "\n" + "With " + highestEggAmount + " eggs.");
+    }
+    
+    public void makeStairsWithEggs() {
+        int startCoordsX = getX();
+        int startCoordsY = getY();
+        int height = getWorld().getHeight();
+        int row = 0;
+        while (row < height - startCoordsY) {
+            goToLocation(startCoordsX, startCoordsY + row);
+            faceDirection(1);
+            layTrailOfEggs(row + 1);
+            row++;
+        }
+        goToLocation(startCoordsX, startCoordsY);
     }
 }
