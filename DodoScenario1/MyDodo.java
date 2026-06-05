@@ -496,4 +496,21 @@ public class MyDodo extends Dodo
         }
         goToLocation(startCoordsX, startCoordsY);
     }
+    
+    public void makeStairsWithEggsDoubled() {
+        int startCoordsX = getX();
+        int startCoordsY = getY();
+        int height = getWorld().getHeight();
+        int row = 0;
+        int count = 1;
+        while (row < height - startCoordsY && count <= getWorld().getWidth() -
+        startCoordsX) {
+            goToLocation(startCoordsX, startCoordsY + row);
+            faceDirection(1);
+            layTrailOfEggs(count);
+            count = count * 2;
+            row++;
+        }
+        goToLocation(startCoordsX, startCoordsY);
+    }
 }
