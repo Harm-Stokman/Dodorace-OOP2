@@ -543,4 +543,8 @@ public class MyDodo extends Dodo
         
         return average;
     }
+    
+    public void fixBrokenColumnsOrRows() {
+        
+    }
 }
