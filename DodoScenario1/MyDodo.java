@@ -409,12 +409,10 @@ public class MyDodo extends Dodo
         int eggAmount = 0;
          if (onEgg())  {
             eggAmount++; 
-            System.out.println("egg found");
             }
         while (!borderAhead()) {
             if (onEgg())  {
             eggAmount++; 
-            System.out.println("egg found");
             }
             move();
         }
@@ -526,5 +524,23 @@ public class MyDodo extends Dodo
             row++;
         }
         goToLocation(startCoordsX, startCoordsY);
+    }
+    
+    public double calculateAverageEggs() {
+        int rows = 0;
+        double eggAmount = 0;
+        while (rows < getWorld().getHeight()) {
+             eggAmount = eggAmount + countEggsInRow();
+             rows++;    
+             turnRight();
+             if (!borderAhead()) {
+            move();
+            turnLeft();
+            }
+        }
+        
+        double average = eggAmount / rows;
+        
+        return average;
     }
 }
