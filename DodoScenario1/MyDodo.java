@@ -421,6 +421,10 @@ public class MyDodo extends Dodo
         return eggAmount;
     }
     
+    /**
+     * Dodo lays eggs of the same amount of the input
+     */
+    
     public void layTrailOfEggs(int n) {
         if (n <= getWorld().getWidth()) {
             for (int index = 0; index < n; index++) {
@@ -443,6 +447,9 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Dodo counts all eggs in the rows and gives a total amount of eggs back
+     */
     public void countEggsInWorld() {
         int eggCount = 0;
         for (int index = 0; index < getWorld().getHeight(); index++) {
@@ -458,6 +465,10 @@ public class MyDodo extends Dodo
         showCompliment("You collected " + eggCount + " " + "eggs.");
     }
     
+    /**
+     * Dodo counts every egg in a row. it checks if the total eggs in a row is
+     * higher than the previous row. it does this for every row.
+     */
     public void findRowWithMostEggs() {
         int highestRowCoords = 0;
         int highestEggAmount = 0;
@@ -481,6 +492,9 @@ public class MyDodo extends Dodo
         + "\n" + "With " + highestEggAmount + " eggs.");
     }
     
+    /**
+     * dodo makes a stairs like shape, until she reaches a border
+     */
     public void makeStairsWithEggs() {
         int startCoordsX = getX();
         int startCoordsY = getY();
@@ -495,6 +509,10 @@ public class MyDodo extends Dodo
         goToLocation(startCoordsX, startCoordsY);
     }
     
+    /**
+     * Dodo makes a stairs like shape, but doubles the amount of eggs on each 
+     * row.
+     */
     public void makeStairsWithEggsDoubled() {
         int startCoordsX = getX();
         int startCoordsY = getY();
@@ -512,6 +530,9 @@ public class MyDodo extends Dodo
         goToLocation(startCoordsX, startCoordsY);
     }
     
+    /**
+     * Dodo creates a pyramid shaped object.
+     */
     public void createPyramidWithEggs() {
         int startCoordsX = getX();
         int startCoordsY = getY();
@@ -526,6 +547,10 @@ public class MyDodo extends Dodo
         goToLocation(startCoordsX, startCoordsY);
     }
     
+    /**
+     * dodo counts all eggs in all rows, then calculates the average amount 
+     * of eggs per row based on how many rows there are in the world
+     */
     public double calculateAverageEggs() {
         int rows = 0;
         double eggAmount = 0;
@@ -544,7 +569,23 @@ public class MyDodo extends Dodo
         return average;
     }
     
+    public int getIncorrectRowNr() {
+        int rowNumber;
+        
+        return rowNumber;
+    }
+    
+    public void goToIncorrectBit() {
+        
+    }
+    
+    public void fixIncorrectBit() {
+        
+    }
+    
     public void fixBrokenColumnsOrRows() {
+        
+        
         
     }
 }
