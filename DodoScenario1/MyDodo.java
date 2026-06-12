@@ -570,9 +570,8 @@ public class MyDodo extends Dodo
     }
     
     public int getIncorrectRowNr() {
-        int rowNumber;
-        
-        return rowNumber;
+        int number = getY();
+        return number;
     }
     
     public void goToIncorrectBit() {
@@ -584,8 +583,18 @@ public class MyDodo extends Dodo
     }
     
     public void fixBrokenColumnsOrRows() {
-        
-        
-        
+        int height = getWorld().getHeight();
+        for (int index = 0; index < height; index++) {
+            int result = countEggsInRow() % 2;
+            if (result == 1) {
+                System.out.println(getIncorrectRowNr());
+            }
+            turnRight();
+            if (!borderAhead()) {
+                move();
+                turnLeft();
+            }
+        }  
+        goToLocation(0, 0);
     }
 }
