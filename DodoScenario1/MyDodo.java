@@ -569,9 +569,14 @@ public class MyDodo extends Dodo
         return average;
     }
     
-    public int getIncorrectRowNr() {
-        int number = getY();
-        return number;
+    public int getIncorrectRowNr(int direction) {
+        if (direction == 1) {
+            int number = getY();
+            return number;
+        } else {
+            int number = getX();
+            return number;
+        }
     }
     
     public void goToIncorrectBit() {
@@ -584,17 +589,33 @@ public class MyDodo extends Dodo
     
     public void fixBrokenColumnsOrRows() {
         int height = getWorld().getHeight();
-        for (int index = 0; index < height; index++) {
-            int result = countEggsInRow() % 2;
-            if (result == 1) {
-                System.out.println(getIncorrectRowNr());
+        int width = getWorld().getHeight();
+        for (int heightIndex = 0; heightIndex < height; heightIndex++) {
+            int rowResult = countEggsInRow() % 2;
+            if (rowResult == 1) {
+                 int incorrectY = getIncorrectRowNr(1);
+                 System.out.println(incorrectY);
             }
-            turnRight();
+             turnRight();
             if (!borderAhead()) {
                 move();
                 turnLeft();
             }
         }  
+        goToLocation(0, 0);
+        faceDirection(2);
+        for (int widthIndex = 0; widthIndex < width; widthIndex++) {
+            int columnResult = countEggsInRow() % 2;
+            if (columnResult == 1) {
+                int incorrectX = getIncorrectRowNr(2);
+                System.out.println(incorrectX);
+            }
+            turnLeft();
+            if (!borderAhead()) {
+                move();
+                turnRight();
+            }
+        }
         goToLocation(0, 0);
     }
 }
