@@ -579,21 +579,23 @@ public class MyDodo extends Dodo
         }
     }
     
-    public void goToIncorrectBit() {
-        
+    public void goToIncorrectBit(int coordX, int coordY) {
+        goToLocation(coordX, coordY);
     }
     
     public void fixIncorrectBit() {
-        
+        layEgg();
     }
     
     public void fixBrokenColumnsOrRows() {
         int height = getWorld().getHeight();
         int width = getWorld().getHeight();
+        int incorrectY = 0;
+        int incorrectX = 0;
         for (int heightIndex = 0; heightIndex < height; heightIndex++) {
             int rowResult = countEggsInRow() % 2;
             if (rowResult == 1) {
-                 int incorrectY = getIncorrectRowNr(1);
+                incorrectY = getIncorrectRowNr(1);
                  System.out.println(incorrectY);
             }
              turnRight();
@@ -607,7 +609,7 @@ public class MyDodo extends Dodo
         for (int widthIndex = 0; widthIndex < width; widthIndex++) {
             int columnResult = countEggsInRow() % 2;
             if (columnResult == 1) {
-                int incorrectX = getIncorrectRowNr(2);
+                incorrectX = getIncorrectRowNr(2);
                 System.out.println(incorrectX);
             }
             turnLeft();
@@ -616,6 +618,8 @@ public class MyDodo extends Dodo
                 turnRight();
             }
         }
+        goToIncorrectBit(incorrectX, incorrectY);
+        fixIncorrectBit();
         goToLocation(0, 0);
     }
 }
