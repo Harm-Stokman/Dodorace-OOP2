@@ -569,6 +569,10 @@ public class MyDodo extends Dodo
         return average;
     }
     
+    /**
+     * Checks which direction the dodo is facing first, then gives back the 
+     * coordinate based on which axis the dodo moves on.
+     */
     public int getIncorrectRowNr(int direction) {
         if (direction == 1) {
             int number = getY();
@@ -579,14 +583,25 @@ public class MyDodo extends Dodo
         }
     }
     
+    /**
+     * Dodo goes to the location based on the given coordinates
+     */
     public void goToIncorrectBit(int coordX, int coordY) {
         goToLocation(coordX, coordY);
     }
     
+    /**
+     * Dodo lays an egg when standing on the incorrect bit
+     */
     public void fixIncorrectBit() {
         layEgg();
     }
     
+    /**
+     * Dodo checks the egg amount of all rows and columns, then checks if the 
+     * egg amount is uneven. If so, it lays an egg to make the row and columns
+     * have an even amount of eggs.
+     */
     public void fixBrokenColumnsOrRows() {
         int height = getWorld().getHeight();
         int width = getWorld().getHeight();
