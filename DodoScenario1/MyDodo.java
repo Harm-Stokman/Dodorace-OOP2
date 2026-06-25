@@ -637,4 +637,19 @@ public class MyDodo extends Dodo
         fixIncorrectBit();
         goToLocation(0, 0);
     }
+    
+    public void moveRandomly(int steps) {
+        int stepped = 1;
+        while (steps != 0) {
+            faceDirection(randomDirection());
+            if (canMove()) {
+                move();
+                System.out.println(stepped);
+                stepped++;
+                steps = steps - 1;
+            } else {                        
+                turnRight();
+            }
+        }
+    }
 }
