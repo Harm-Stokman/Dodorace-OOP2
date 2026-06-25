@@ -94,4 +94,61 @@ public class MyDodo extends Dodo
     public void practiceWithListsOfSurpriseEggs( ){
         List<SurpriseEgg>  listOfEgss = SurpriseEgg.generateListOfSurpriseEggs( 12, getWorld() );
     }
+    
+    /**
+     * makes a list of 10 surprise eggs
+     */
+    public List<SurpriseEgg> makeListOfSurpriseEggs() {
+        List<SurpriseEgg> SurpriseEggList = SurpriseEgg.generateListOfSurpriseEggs(10, getWorld());
+        return SurpriseEggList;
+    }
+    
+    /**
+     * prints of coordinates of an egg
+     */
+    public void printCoordinatesOfEgg(Egg egg) {
+        System.out.println(egg.getX() +" "+ egg.getY());
+    }
+    
+    /**
+     * Makes a list of 10 surprise  eggs and prints every egg's coordinates
+     */
+    public void makeListOfSurpriseEggsAndPrintCoordinates() {
+        for (Egg SurpriseEgg : makeListOfSurpriseEggs()) {
+            printCoordinatesOfEgg(SurpriseEgg);
+        }
+    }
+    
+    /**
+     * makes a list of 10 eggs and checks what egg has the highest value
+     */
+    public void getMostValuedEgg() {
+        int highestValueEgg = 0;
+        int indexOfHeighestEgg = -1;
+        
+        for (Egg SurpriseEgg : makeListOfSurpriseEggs()) {
+            printCoordinatesOfEgg(SurpriseEgg);
+            if (SurpriseEgg.getValue() > highestValueEgg) {
+                System.out.println(SurpriseEgg.getValue());
+                highestValueEgg = SurpriseEgg.getValue();
+            }
+        }
+        System.out.println(highestValueEgg);
+    }
+    
+    /**
+     * makes a list of 10 eggs and calculates the average egg value
+     */
+    public double getAverageValue() {
+        int total = 0;
+        double size = 0;
+         for (Egg SurpriseEgg : makeListOfSurpriseEggs()) {
+             total = total + SurpriseEgg.getValue();
+             size++;
+        }
+        
+
+        double average = total / size;
+        return average;
+    }
 }
